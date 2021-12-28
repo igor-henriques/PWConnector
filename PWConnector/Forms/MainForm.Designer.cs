@@ -1,4 +1,4 @@
-﻿namespace PWConnector
+﻿namespace PWConnector.Forms
 {
     partial class MainForm
     {
@@ -45,11 +45,18 @@
             this.tbGeneric = new System.Windows.Forms.TextBox();
             this.cbProctype = new System.Windows.Forms.CheckBox();
             this.tbProctype = new System.Windows.Forms.TextBox();
+            this.tbItemRemove = new System.Windows.Forms.TextBox();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.btnDel = new System.Windows.Forms.Button();
             this.btnRemoveComponent = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -60,7 +67,7 @@
             this.btnConnect.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnConnect.Location = new System.Drawing.Point(11, 9);
             this.btnConnect.Name = "btnConnect";
-            this.btnConnect.Size = new System.Drawing.Size(268, 37);
+            this.btnConnect.Size = new System.Drawing.Size(276, 37);
             this.btnConnect.TabIndex = 0;
             this.btnConnect.Text = "Get All Roles";
             this.toolTip.SetToolTip(this.btnConnect, "The first step: get all roles to inspect their inventory.");
@@ -71,7 +78,7 @@
             // 
             this.progressBar.Location = new System.Drawing.Point(12, 54);
             this.progressBar.Name = "progressBar";
-            this.progressBar.Size = new System.Drawing.Size(266, 21);
+            this.progressBar.Size = new System.Drawing.Size(275, 21);
             this.progressBar.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
             this.progressBar.TabIndex = 4;
             // 
@@ -79,7 +86,7 @@
             // 
             this.btnCreateComponent.Enabled = false;
             this.btnCreateComponent.Font = new System.Drawing.Font("Malgun Gothic", 12F);
-            this.btnCreateComponent.Location = new System.Drawing.Point(11, 82);
+            this.btnCreateComponent.Location = new System.Drawing.Point(11, 84);
             this.btnCreateComponent.Name = "btnCreateComponent";
             this.btnCreateComponent.Size = new System.Drawing.Size(232, 32);
             this.btnCreateComponent.TabIndex = 1;
@@ -93,7 +100,7 @@
             // 
             this.btnSwitch.Enabled = false;
             this.btnSwitch.Font = new System.Drawing.Font("Malgun Gothic", 12F);
-            this.btnSwitch.Location = new System.Drawing.Point(12, 628);
+            this.btnSwitch.Location = new System.Drawing.Point(11, 683);
             this.btnSwitch.Name = "btnSwitch";
             this.btnSwitch.Size = new System.Drawing.Size(276, 37);
             this.btnSwitch.TabIndex = 4;
@@ -149,7 +156,7 @@
             this.linkLabel.AutoSize = true;
             this.linkLabel.Font = new System.Drawing.Font("Malgun Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.linkLabel.LinkColor = System.Drawing.Color.Black;
-            this.linkLabel.Location = new System.Drawing.Point(87, 673);
+            this.linkLabel.Location = new System.Drawing.Point(86, 728);
             this.linkLabel.Name = "linkLabel";
             this.linkLabel.Size = new System.Drawing.Size(111, 15);
             this.linkLabel.TabIndex = 10;
@@ -165,7 +172,7 @@
             this.tbItemID.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbItemID.Location = new System.Drawing.Point(128, 126);
             this.tbItemID.Name = "tbItemID";
-            this.tbItemID.Size = new System.Drawing.Size(151, 22);
+            this.tbItemID.Size = new System.Drawing.Size(159, 22);
             this.tbItemID.TabIndex = 3;
             this.toolTip.SetToolTip(this.tbItemID, "The ID Target Item which will be affected");
             this.tbItemID.TextChanged += new System.EventHandler(this.tbItemID_TextChanged);
@@ -193,6 +200,7 @@
             this.tbGeneric.Name = "tbGeneric";
             this.tbGeneric.Size = new System.Drawing.Size(126, 22);
             this.tbGeneric.TabIndex = 15;
+            this.tbGeneric.Text = "0";
             this.toolTip.SetToolTip(this.tbGeneric, "Generic octet which will be switched on every target item");
             // 
             // cbProctype
@@ -219,17 +227,93 @@
             this.tbProctype.Name = "tbProctype";
             this.tbProctype.Size = new System.Drawing.Size(126, 22);
             this.tbProctype.TabIndex = 17;
+            this.tbProctype.Text = "0";
             this.toolTip.SetToolTip(this.tbProctype, "New proctype on every item");
             this.tbProctype.TextChanged += new System.EventHandler(this.tbProctype_TextChanged);
+            // 
+            // tbItemRemove
+            // 
+            this.tbItemRemove.BackColor = System.Drawing.Color.Brown;
+            this.tbItemRemove.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbItemRemove.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbItemRemove.ForeColor = System.Drawing.Color.White;
+            this.tbItemRemove.Location = new System.Drawing.Point(173, 19);
+            this.tbItemRemove.Name = "tbItemRemove";
+            this.tbItemRemove.Size = new System.Drawing.Size(62, 22);
+            this.tbItemRemove.TabIndex = 17;
+            this.tbItemRemove.Text = "0";
+            this.tbItemRemove.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.toolTip.SetToolTip(this.tbItemRemove, "DANGER AREA");
+            this.tbItemRemove.TextChanged += new System.EventHandler(this.tbItemID_TextChanged);
+            this.tbItemRemove.MouseEnter += new System.EventHandler(this.panel1_MouseEnter);
+            this.tbItemRemove.MouseLeave += new System.EventHandler(this.panel1_MouseLeave);
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.BackColor = System.Drawing.Color.Black;
+            this.pictureBox4.Location = new System.Drawing.Point(173, 41);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(62, 2);
+            this.pictureBox4.TabIndex = 18;
+            this.pictureBox4.TabStop = false;
+            this.toolTip.SetToolTip(this.pictureBox4, "DANGER AREA");
+            this.pictureBox4.MouseEnter += new System.EventHandler(this.panel1_MouseEnter);
+            this.pictureBox4.MouseLeave += new System.EventHandler(this.panel1_MouseLeave);
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.Brown;
+            this.panel1.Controls.Add(this.label4);
+            this.panel1.Controls.Add(this.tbItemRemove);
+            this.panel1.Controls.Add(this.pictureBox4);
+            this.panel1.Controls.Add(this.btnDel);
+            this.panel1.Location = new System.Drawing.Point(-10, 618);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(315, 57);
+            this.panel1.TabIndex = 20;
+            this.toolTip.SetToolTip(this.panel1, "DANGER AREA");
+            this.panel1.MouseEnter += new System.EventHandler(this.panel1_MouseEnter);
+            this.panel1.MouseLeave += new System.EventHandler(this.panel1_MouseLeave);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Malgun Gothic", 11F);
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(18, 19);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(142, 20);
+            this.label4.TabIndex = 19;
+            this.label4.Text = "REMOVE ITEM (ID):";
+            this.toolTip.SetToolTip(this.label4, "DANGER AREA");
+            this.label4.MouseEnter += new System.EventHandler(this.panel1_MouseEnter);
+            this.label4.MouseLeave += new System.EventHandler(this.panel1_MouseLeave);
+            // 
+            // btnDel
+            // 
+            this.btnDel.FlatAppearance.BorderSize = 0;
+            this.btnDel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDel.Font = new System.Drawing.Font("Malgun Gothic", 12F);
+            this.btnDel.ForeColor = System.Drawing.Color.White;
+            this.btnDel.Location = new System.Drawing.Point(237, 3);
+            this.btnDel.Name = "btnDel";
+            this.btnDel.Size = new System.Drawing.Size(75, 51);
+            this.btnDel.TabIndex = 4;
+            this.btnDel.Text = "DEL";
+            this.toolTip.SetToolTip(this.btnDel, "DANGER AREA");
+            this.btnDel.UseVisualStyleBackColor = true;
+            this.btnDel.Click += new System.EventHandler(this.btnDel_Click);
+            this.btnDel.MouseEnter += new System.EventHandler(this.panel1_MouseEnter);
+            this.btnDel.MouseLeave += new System.EventHandler(this.panel1_MouseLeave);
             // 
             // btnRemoveComponent
             // 
             this.btnRemoveComponent.Enabled = false;
             this.btnRemoveComponent.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRemoveComponent.ForeColor = System.Drawing.Color.Maroon;
-            this.btnRemoveComponent.Location = new System.Drawing.Point(248, 82);
+            this.btnRemoveComponent.Location = new System.Drawing.Point(248, 84);
             this.btnRemoveComponent.Name = "btnRemoveComponent";
-            this.btnRemoveComponent.Size = new System.Drawing.Size(30, 31);
+            this.btnRemoveComponent.Size = new System.Drawing.Size(39, 31);
             this.btnRemoveComponent.TabIndex = 2;
             this.btnRemoveComponent.Text = "-";
             this.btnRemoveComponent.UseVisualStyleBackColor = true;
@@ -250,7 +334,7 @@
             this.pictureBox1.BackColor = System.Drawing.Color.Black;
             this.pictureBox1.Location = new System.Drawing.Point(128, 146);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(151, 1);
+            this.pictureBox1.Size = new System.Drawing.Size(159, 1);
             this.pictureBox1.TabIndex = 13;
             this.pictureBox1.TabStop = false;
             // 
@@ -277,7 +361,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(297, 691);
+            this.ClientSize = new System.Drawing.Size(297, 750);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.cbProctype);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.tbProctype);
@@ -304,7 +389,9 @@
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Octet Switcher";
-            this.Load += new System.EventHandler(this.MainForm_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
@@ -334,6 +421,11 @@
         private System.Windows.Forms.CheckBox cbProctype;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.TextBox tbProctype;
+        private System.Windows.Forms.TextBox tbItemRemove;
+        private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button btnDel;
     }
 }
 

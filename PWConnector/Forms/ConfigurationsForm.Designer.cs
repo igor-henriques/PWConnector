@@ -1,4 +1,4 @@
-﻿namespace PWConnector
+﻿namespace PWConnector.Forms
 {
     partial class ConfigurationsForm
     {

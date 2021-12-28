@@ -1,0 +1,17 @@
+﻿global using MySql.Data.MySqlClient;
+global using PWToolKit;
+global using PWToolKit.API.Gamedbd;
+global using PWToolKit.Models;
+global using PWToolKit.Packets;
+global using System;
+global using System.Collections.Generic;
+global using System.Data;
+global using System.Drawing;
+global using System.Linq;
+global using System.Threading.Tasks;
+global using System.Windows.Forms;
+global using PWConnector.Models;
+global using Newtonsoft.Json;
+global using System.IO;
+global using PWConnector.Context;
+global using PWConnector.Forms;
